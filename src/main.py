@@ -32,7 +32,7 @@ df = SmartDataframe(data, config={"llm": llm},)
 
 with st.form('data_prompt_form'):
     text = st.text_area(
-        label='Prompt data here:', placeholder='Which Category expensive in 2024?'
+        label='Prompt data here:', placeholder='Which top 3 Category expensive'
     )
     submitted = st.form_submit_button('Submit')
     if submitted:
@@ -42,17 +42,3 @@ with st.form('data_prompt_form'):
                 status.update('Completed', expanded=False, state="complete")
             except Exception as e:
                 status.update(label=f"An error occurred: {e}", state="error")
-
-
-# st.chat_input(placeholder="Your message",  key=None, max_chars=None,
-#               disabled=False, on_submit=None, args=None, kwargs=None)
-
-# st.chat_message('name',   avatar=None)
-
-
-# if st.button('Chat data', key='show_data'):
-#     st.status('Running', expanded=False, state="running")
-#     c = df.chat('Which are top 5 Category amount is expensive')
-
-#     st.write(c)
-#     st.status('Done', expanded=False, state="complete")

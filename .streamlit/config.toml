@@ -1,4 +1,5 @@
-# [server]
+[server]
+runOnSave = true
 # enableStaticServing = true
 
 [browser]

@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.12"
 streamlit = "^1.34.0"
 pandas = "^2.2.2"
+langchain-community = "^0.0.38"
+pandasai = "2.0.21"
 
 
 [build-system]

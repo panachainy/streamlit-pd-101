@@ -18,3 +18,4 @@ datas/
 
 .streamlit/secrets.toml
 cache/
+pandasai.log

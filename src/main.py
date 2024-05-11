@@ -30,11 +30,19 @@ st.dataframe(dt)
 llm = Ollama(model="mistral")
 df = SmartDataframe(data, config={"llm": llm},)
 
-with st.form('my_form'):
+with st.form('data_prompt_form'):
     text = st.text_area(
-        label='Prompt data here:', placeholder='What are the three key pieces of advice for learning how to code?'
+        label='Prompt data here:', placeholder='Which Category expensive in 2024?'
     )
     submitted = st.form_submit_button('Submit')
+    if submitted:
+        with st.status(label="Running...", expanded=True, state="running") as status:
+            try:
+                st.write(df.chat(text))
+                status.update('Completed', expanded=False, state="complete")
+            except Exception as e:
+                status.update(label=f"An error occurred: {e}", state="error")
+
 
 # st.chat_input(placeholder="Your message",  key=None, max_chars=None,
 #               disabled=False, on_submit=None, args=None, kwargs=None)
